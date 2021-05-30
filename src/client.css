@@ -1,0 +1,48 @@
+html {
+  background-color: #0d0d0d;
+  font-family: "Anton", sans-serif;
+}
+section.clientPage {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+h1 {
+  color: white;
+  text-transform: uppercase;
+}
+h2 {
+  color: white;
+  font-size: 60px;
+  text-transform: uppercase;
+  margin-top: 100px;
+}
+h3 {
+  text-transform: uppercase;
+  color: white;
+  font-size: 30px;
+}
+input.text {
+  width: 40%;
+  height: 30px;
+}
+button.submit {
+  text-transform: uppercase;
+  color: white;
+  background-color: #0d0d0d;
+  border: 2px solid #ffffff;
+  font-size: 18px;
+  box-sizing: inherit;
+  display: inline-block;
+  padding: 10px 20px;
+  transition: all 0.6s;
+  animation: fade 4s ease-in;
+  margin-top: 20px;
+}
+button.submit:hover {
+  color: white;
+  transition: all 0.5s;
+  background-color: rgb(68, 20, 145);
+  border: 2px solid rgb(68, 20, 145);
+  cursor: pointer;
+}

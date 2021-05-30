@@ -13,16 +13,13 @@ p{
 }
 h1 {
   color: white;
-  text-transform: uppercase;
 }
 h2 {
   color: white;
   font-size: 60px;
-  text-transform: uppercase;
   margin-top: 100px;
 }
 h3 {
-  text-transform: uppercase;
   color: white;
   font-size: 30px;
 }

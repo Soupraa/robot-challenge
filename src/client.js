@@ -4,7 +4,6 @@ import ReactDOM from "react-dom";
 import useFetch from "react-fetch-hook";
 import Clientform from "./Clientform";
 
-
 /*tmp method to retreive data from backend API*/
 // function getData() {
 //   axios.get("http://localhost:4001/api/answer").then(function(response) {
@@ -17,11 +16,7 @@ function App() {
   // if(isLoading) {
   //     return 'Loading...';
   // }
-  return (
-    <section class="clientPage">
-      <Clientform/>
-    </section>
-  );
+  return <Clientform />;
 }
 
 ReactDOM.render(<App />, document.getElementById("app"));

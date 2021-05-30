@@ -24,6 +24,18 @@ app.post("/api", (request, response) => {
   /*iterate through instructions letter by letter*/
   for (var i = 0; i < instructions.length; i++) {
     switch (instructions.charAt(i)) {
+      case "w":
+        coordY++;
+        break;
+      case "a":
+        coordX--;
+        break;
+      case "s":
+        coordY--;
+        break;
+      case "d":
+        coordX++;
+        break;
       case "x":
         console.log("took a photo!");
         var isNew = true;
@@ -39,36 +51,21 @@ app.post("/api", (request, response) => {
           console.log("new location found!");
           uniqueLocations++;
           storeCoords(coordX, coordY, newLocations);
-        //   console.log("unique locations: " + uniqueLocations);
+          //   console.log("unique locations: " + uniqueLocations);
         }
-        break;
-      case "w":
-        coordY++;
-        // console.log(coordY);
-        break;
-      case "a":
-        coordX--;
-        // console.log(coordX);
-        break;
-      case "s":
-        coordY--;
-        // console.log(coordY);
-        break;
-      case "d":
-        coordX++;
-        // console.log(coordX);
         break;
     }
   }
   console.log("Total unique Locations: " + uniqueLocations);
   //   console.log(instructions);
-//   response.json({
-//       data: uniqueLocations
-//   })
+  //   response.json({
+  //       data: uniqueLocations
+  //   })
 });
 
+/*returns unique locations of last sent instructions*/
 app.get("/api/answer", (req, res) => {
-  console.log("Getting Data!");
+  console.log("Getting response!");
   // console.log(instructions);
   res.send(uniqueLocations.toString());
 });

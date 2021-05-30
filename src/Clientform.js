@@ -6,7 +6,7 @@ export default class Clientform extends Component {
   constructor() {
     super();
     this.state = {
-      uniqueLocations: "not found yet",
+      uniqueLocations: "searching...",
     };
     this.componentDidMount = this.componentDidMount.bind(this);
   }
@@ -15,7 +15,9 @@ export default class Clientform extends Component {
   componentDidMount() {
     axios.get("http://localhost:4001/api/answer").then((response) => {
       this.setState({ uniqueLocations: response.data });
-    });
+    }).catch((error)=>{
+      console.log(error);
+    })
   }
 
   render() {
@@ -23,8 +25,6 @@ export default class Clientform extends Component {
     function handleSubmit() {
       const x = document.getElementById("instructions").value;
       const data = { x };
-
-      const s = JSON.stringify(x);
       const options = {
         method: "POST",
         headers: {
@@ -33,20 +33,32 @@ export default class Clientform extends Component {
         },
         body: JSON.stringify(data),
       };
-      fetch("http://localhost:4001/api", options).then((response) => {
-        console.log(response);
-      });
+      fetch("http://localhost:4001/api", options)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
     return (
       <section class="clientPage">
         <h2>Robot Challenge</h2>
         <form classname="form" id="myForm" onSubmit={handleSubmit}>
           <h3>Send me instructions!</h3>
+          <p>
+            x = Take photo <pre/>
+            w = Move north &nbsp;&nbsp;
+            a = Move west &nbsp;&nbsp;
+            s = Move south &nbsp;&nbsp;
+            d = Move east
+          </p>
           <input
             class="text"
             type="text"
             name="instructions"
             id="instructions"
+            pattern ="\b[xwasd]+\b(?![,])"
           />
           <br />
           <button class="submit" type="submit" onclick="handleSubmit()">

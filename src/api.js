@@ -1,4 +1,3 @@
-
 /*left some console logging in for a display in the server side terminal*/
 
 const express = require("express");
@@ -19,7 +18,7 @@ function storeCoords(coordX, coordY, array) {
 
 /*PART 1 post method*/
 app.post("/api/part1", (request, response) => {
-  console.log("---------PART 1---------");
+  console.log("----------PART 1----------");
   console.log("NEW instructions received!");
   instructions = request.body.x;
   var newLocations = new Array(); // to store new locations found
@@ -102,7 +101,6 @@ app.post("/api/part2", (request, response) => {
         case "x":
           // console.log("robot 1 took a photo!");
           var isNew = true;
-          /*iterate through location array check for existing coords*/
           for (var j = 0; j < p2newLocations.length; j++) {
             if (
               p2newLocations[j].x == r1coordX &&
@@ -139,7 +137,6 @@ app.post("/api/part2", (request, response) => {
         case "x":
           // console.log("robot 2 took a photo!");
           var isNew = true;
-          /*iterate through location array check for existing coords*/
           for (var j = 0; j < p2newLocations.length; j++) {
             if (
               p2newLocations[j].x == r2coordX &&
